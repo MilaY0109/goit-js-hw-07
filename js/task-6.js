@@ -5,7 +5,7 @@ function getRandomHexColor() {
 }
 function createSquares() {
   const input = document.querySelector('input[type="number"]');
-  const amount = parseInt(input.value);
+  const amount = input.value;
   const boxesContainer = document.getElementById('boxes');
   let size = 30;
 
