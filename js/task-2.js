@@ -29,26 +29,28 @@ const images = [
 ];
 
 
+
 const gallerySet = document.querySelector('.gallery');
+const fragment = document.createDocumentFragment();
 
 images.forEach(imgItem => {
-  const setItem = document.createElement('li');
-  setItem.classList.add('set-item');
+  const listItem = document.createElement('li');
+  listItem.classList.add('set-item');
 
   const image = document.createElement('img');
   image.classList.add('item-image');
 
-  
-   image.setAttribute('src', imgItem.url);
+  image.setAttribute('src', imgItem.url);
   image.setAttribute('alt', imgItem.alt);
 
-  image.style.width = '200px'; 
-  image.style.height = '120px'; 
+  image.style.width = '200px';
+  image.style.height = '120px';
 
-  setItem.append(image);
-  gallerySet.append(setItem);
+  listItem.appendChild(image);
+  fragment.appendChild(listItem);
 });
 
-gallerySet.style.display = 'flex'; 
+gallerySet.appendChild(fragment);
+gallerySet.style.display = 'flex';
 gallerySet.style.listStyleType = 'none';
 gallerySet.style.flexDirection = 'column';

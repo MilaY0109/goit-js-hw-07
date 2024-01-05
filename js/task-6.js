@@ -1,12 +1,24 @@
+
+
+
+const input = document.querySelector('input[type="number"]');
+const createButton = document.querySelector('button[data-create]');
+const destroyButton = document.querySelector('button[data-destroy]');
+const boxesContainer = document.getElementById('boxes');
+
 function getRandomHexColor() {
-  return `#${Math.floor(Math.random() * 16777215)
-    .toString(16)
-    .padStart(6, 0)}`;
+  return `#${Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0')}`;
 }
+
 function createSquares() {
-  const input = document.querySelector('input[type="number"]');
+  clearBoxes(); 
+  
   const amount = input.value;
-  const boxesContainer = document.getElementById('boxes');
+  
+  if (amount < 1 || amount > 100) {
+    return; 
+  }
+
   let size = 30;
 
   for (let i = 0; i < amount; i++) {
@@ -18,17 +30,10 @@ function createSquares() {
     size += 10;
   }
 }
-const squareContainer = document.querySelector('button[data-create]');
-squareContainer.addEventListener('click', createSquares);
 
-
-
- function clearBoxes(container) {
-  container.innerHTML = '';
+function clearBoxes() {
+  boxesContainer.innerHTML = '';
 }
-document.querySelector('button[data-destroy]').addEventListener('click', function() {
-  const boxesContainer = document.getElementById('boxes');
-  clearBoxes(boxesContainer);
-  
 
-});
+createButton.addEventListener('click', createSquares);
+destroyButton.addEventListener('click', clearBoxes);

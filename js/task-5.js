@@ -3,14 +3,15 @@ function getRandomHexColor() {
     .toString(16)
     .padStart(6, 0)}`;
 }
-const changeClrBtn = document.querySelector('.change-color');
+
+
+   const changeClrBtn = document.querySelector('.change-color');
 const clrSpan = document.querySelector('.color');
-    
 
-    changeClrBtn.addEventListener('click', function() {
-      const randomClr = getRandomHexColor();
+changeClrBtn.addEventListener('click', function() {
+  const randomClr = getRandomHexColor();
 
-      document.body.style.backgroundColor = randomClr;
+  document.body.style.backgroundColor = randomClr;
 
-      clrSpan.style.color = randomClr; 
-    });
+  clrSpan.textContent = randomClr; 
+});
